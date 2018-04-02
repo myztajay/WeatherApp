@@ -19,7 +19,7 @@ views = {
     </div>`,
     loader:"<div id='loader-container' class='loader-container'><div id='loader' class='lds-dual-ring'></div><div>Beep Boop Beep...</div></div>",
     response(data){
-        let icon = `http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`
+        let icon = `https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`
         
         return(
         `
