@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css"  crossorigin="anonymous" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"  crossorigin="anonymous"></script>
+    <script src="main.js"  crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="main-container">
+        <div class="view-container">
+            <div class="main-header"><h1 class="main-font" id=main-text>Local Weather App</h1></div>  
+            <div class="center" id="main-view">
+                <input id="zip" class="rounded" type="text" pattern="[0-9]{5}" required minlength="5" required maxlength="5" placeholder="Enter Your Zip Code" />
+                <button id="submit" type="button" class="success button full rounded font-white">Save</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

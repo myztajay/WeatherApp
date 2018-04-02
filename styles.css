@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo');
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2c3e50;
+    color:white;
+    height: 100vh;
+}
+.view-container{
+    align-self:center;
+    margin-top:20px;
+}
+.main-header{
+    margin-top:20px;
+}
+.main-font{
+    font-family: "Baloo";
+}
+.main-view{
+    display: flex;
+    flex-direction: column;
+}
+.center{
+    justify-content: center;
+    align-items: center;
+}
+
+.full{
+    width: 100%;
+}
+
+.rounded{
+    border-radius: 50px;
+}
+
+.font-white{
+    color:white;
+}
+
+input[type="text"], input[type="text"]:focus{
+    background-color: #2c3e50;
+    color:white; 
+    text-align: center;
+}
+
+#zip:valid{
+    color: #54fd45;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .loader-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  .my-card{
+      background-color: white;
+      max-height:300px;
+      display: flex;
+  }
+  .my-card > h1{
+      color:black;
+  }
+
+  @media only screen and (min-width: 600px) {
+    .main-container{
+        justify-content: center;
+    }
+}
