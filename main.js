@@ -6,13 +6,10 @@ $( document ).ready(()=>{
     $button.click(()=>{
         $zip = $('#zip').val();
         pageController.swapElement("main-view", views.loader)  
-        // pageController.apiCall(`https://cors-anywhere.herokuapp.com/http://openweathermap.org/data/2.5/weather?zip=${$zip}.us&appid=f1819a0f770a1e70318a0c237af8e625`)
-        pageController.apiCall(`http://api.openweathermap.org/data/2.5/forecast?zip=${$zip}&units=imperial&APPID=44ea42967b627e5d041106235be0242a`)
+        pageController.apiCall(`https://api.openweathermap.org/data/2.5/forecast?zip=${$zip}&units=imperial&APPID=44ea42967b627e5d041106235be0242a`)
 
     })
 });
-
-const weatherUrl = 
 
 views = {
     start:` <div class="main-header"><h1 class="main-font" id=main-text>Local Weather App</h1></div>  
