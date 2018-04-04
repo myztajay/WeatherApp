@@ -9,11 +9,11 @@ $( document ).ready(()=>{
         let lat;
         let lon;
         let coords = navigator.geolocation.getCurrentPosition((position)=>{
-            console.log(position.coords.longitude)
             lat = position.coords.latitude;
             lon = position.coords.longitude;
         });
         pageController.swapElement("main-view", views.loader); 
+        console.log(lat, lon)
         pageController.apiCall(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=44ea42967b627e5d041106235be0242a`);
     })
 
