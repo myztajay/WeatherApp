@@ -12,14 +12,14 @@ $( document ).ready(()=>{
             lat = position.coords.latitude;
             lon = position.coords.longitude;
             pageController.swapElement("main-view", views.loader); 
-            pageController.apiCall(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=44ea42967b627e5d041106235be0242a`);
+            pageController.apiCall(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=44ea42967b627e5d041106235be0242a`);
         });
     })
 
     $submit.click(()=>{
-        $zip = $('#zip').val();
+        $city = $('#city').val();
         pageController.swapElement("main-view", views.loader)  
-        pageController.apiCall(`https://api.openweathermap.org/data/2.5/forecast?zip=${$zip}&units=imperial&APPID=44ea42967b627e5d041106235be0242a`)
+        pageController.apiCall(`https://api.openweathermap.org/data/2.5/forecast?zip=${$city}&units=imperial&APPID=44ea42967b627e5d041106235be0242a`)
     })
 });
 
