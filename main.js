@@ -9,6 +9,7 @@ $( document ).ready(()=>{
         let lat;
         let lon;
         let coords = navigator.geolocation.getCurrentPosition((position)=>{
+            console.log(position)
             lat = position.coords.latitude;
             lon = position.coords.longitude;
         });
