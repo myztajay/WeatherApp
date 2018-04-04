@@ -19,7 +19,7 @@ $( document ).ready(()=>{
     $submit.click(()=>{
         $city = $('#city').val();
         pageController.swapElement("main-view", views.loader)  
-        pageController.apiCall(`https://api.openweathermap.org/data/2.5/forecast?zip=${$city}&units=imperial&APPID=44ea42967b627e5d041106235be0242a`)
+        pageController.apiCall(`https://api.openweathermap.org/data/2.5/forecast?q=${$city}&units=imperial&APPID=44ea42967b627e5d041106235be0242a`)
     })
 });
 
