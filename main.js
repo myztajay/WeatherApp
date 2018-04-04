@@ -1,16 +1,29 @@
 $( document ).ready(()=>{
-    $button = $('#submit');
-    
+    // variables and class instantiation
+    $submit = $('#submit');   
     $myCard = $('#my-card');
+    $currentLocationBtn = $("#current-location-btn");
     pageController = new Controller;
-    $button.click(()=>{
+
+    $currentLocationBtn.click(()=>{
+        let lat;
+        let lon;
+        let coords = navigator.geolocation.getCurrentPosition((position)=>{
+            lat = position.coords.latitude;
+            lon = position.coords.longitude;
+        });
+        pageController.swapElement("main-view", views.loader); 
+        pageController.apiCall(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=44ea42967b627e5d041106235be0242a`);
+    })
+
+    $submit.click(()=>{
         $zip = $('#zip').val();
         pageController.swapElement("main-view", views.loader)  
         pageController.apiCall(`https://api.openweathermap.org/data/2.5/forecast?zip=${$zip}&units=imperial&APPID=44ea42967b627e5d041106235be0242a`)
-
     })
 });
 
+// all possible views in the app
 views = {
     start:` <div class="main-header"><h1 class="main-font" id=main-text>Local Weather App</h1></div>  
     <div class="center" id="main-view">
@@ -19,8 +32,7 @@ views = {
     </div>`,
     loader:"<div id='loader-container' class='loader-container'><div id='loader' class='lds-dual-ring'></div><div>Beep Boop Beep...</div></div>",
     response(data){
-        let icon = `https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`
-        
+        let icon = `https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`  
         return(
         `
         <div id='my-card' class="my-card center">
@@ -32,25 +44,22 @@ views = {
     }
 }
 
-class Controller{
+class Controller{    
     swapElement(id, newEle) {
-        // change content of element
         let $temp = $(`#${id}`)
         $temp.replaceWith(newEle)
     }
 
     async apiCall(url){
         try{
- 
-            const { data } = await axios.get(url)
-            console.log(data)
-            this.weatherData = data
+            const { data } = await axios.get(url) 
+            this.apiData = data
         } catch (err) {
             console.log(err)
             return
         }
         setTimeout(()=>{
-            this.swapElement("loader-container",views.response(this.weatherData))
-        },2500)
+            this.swapElement("loader-container",views.response(this.apiData))
+        },2500) 
     }
 }
